@@ -1,0 +1,15 @@
+name: webapp-module-test   #pipeline name
+run-name: ${{github.actor}} started the module test  #get the pipeline creator name
+on: 
+  push: #trigger, in this case a push in any branch 
+jobs:
+  tfsec: #job's name
+  runs-on: ubuntu-latest  #runner kind 
+  steps:
+    -name: baixando codigo
+     uses: actions/checkout@v4
+    -name: instalando tfsec
+      run: curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install_linux.sh | bash  #executes a command inside runner
+    -name: checando versao do tfsec
+      run: tfsec -v
+
