@@ -1,7 +1,7 @@
 name: webapp-module-test #pipeline name
 run-name: ${{github.actor}} started the module test #get the pipeline creator name
 on:
-  push: #trigger, in this case a push in any branch 
+  pull_request: #trigger, only when a pull request is created 
 jobs:
   tfsec:
     #job's name
